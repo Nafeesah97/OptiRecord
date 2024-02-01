@@ -35,10 +35,11 @@ class Patient(BaseModel, Base):
     last_name = Column(String(128), nullable=False)
     sex = Column(enum('F', 'M'))
     DOB = Column(Date)
-    Email = Column(String, nullable=True)
+    email = Column(String, nullable=True)
     contact_no = Column(PhoneNumberType)
-    Address = Column(String(128), nullable=False)
+    address = Column(String(128), nullable=False)
     consult = relationship("Consultation", backref="patient")
+    bill = relationship("Bill", backref="patient")
 
     def is_valid_email(email):
         """To validate email"""

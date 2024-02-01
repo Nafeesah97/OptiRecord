@@ -5,7 +5,8 @@ for consultation table
 """
 from enum import Enum
 from models.basemodel import BaseModel, Base
-from sqlalchemy import Column, String, DateTime, Integer, Date, TypeDecorator, ForeignKey
+from sqlalchemy import Column, String, DateTime, Integer, Date, ForeignKey
+from sqlalchemy.orm import relationship
 
 
 class FollowUpStatusEnum(Enum):
@@ -34,10 +35,15 @@ class Consultation(BaseModel, Base):
     __tablename__ = 'consultations'
 
     encounter_date = BaseModel.created_at.property.columns[0].copy()
-    doctor_id = Column(Integer(6), ForeignKey('doctor.id'), nullable=False)
-    patient_id = Column(Integer(6), ForeignKey('patient.id'), nullable=False)
-    nurse_id = Column(Integer(6), ForeignKey('nurse.id'), nullable=True)
-    optician_id = Column(Integer(6), ForeignKey('optician.id'), nullable=True)
-    front_desk_id = Column(Integer(6), ForeignKey('front_desk.id'), nullable=True)
+    doctor_id = Column(Integer(6), ForeignKey('doctors.id'), nullable=False)
+    patient_id = Column(Integer(6), ForeignKey('patients.id'), nullable=False)
+    nurse_id = Column(Integer(6), ForeignKey('nurses.id'), nullable=True)
+    optician_id = Column(Integer(6), ForeignKey('opticians.id'), nullable=True)
+    front_desk_id = Column(Integer(6), ForeignKey('front_desks.id'), nullable=True)
     follow_up_date = Column(Date)
     follow_up_status = Column(Enum(FollowUpStatusEnum))
+    test = relationship("Procedure", backref="consultation")
+    bill = relationship("Bill", backref="consultation")
+    drug = relationship("Drug", backref="consultation")
+    accessory = relationship("Accessory", backref="consultation")
+    frame = relationship("Frame", backref="consultation")
