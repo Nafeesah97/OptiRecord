@@ -6,7 +6,7 @@ contains the database storage methods
 
 from sqlalchemy import create_engine 
 from sqlalchemy.orm import scoped_session, sessionmaker
-from model.basemodel import Base
+from models.basemodel import Base
 import os
 from os import getenv
 
