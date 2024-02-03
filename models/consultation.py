@@ -47,3 +47,5 @@ class Consultation(BaseModel, Base):
     drug = relationship("Drug", backref="consultation")
     accessory = relationship("Accessory", backref="consultation")
     frame = relationship("Frame", backref="consultation")
+    lens = relationship("Lens", backref="consultation")
+    

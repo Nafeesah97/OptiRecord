@@ -18,3 +18,4 @@ class Stock(BaseModel, Base):
     drug = relationship("Drug", backref="stock")
     accessory = relationship("Accessory", backref="stock")
     frame = relationship("Frame", backref="stock")
+    lens = relationship("Lens", backref="stock")

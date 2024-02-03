@@ -9,9 +9,25 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from models.basemodel import Base
 import os
 from os import getenv
+from models.accessory import Accessory
+from models.basemodel import BaseModel
+from models.bill import Bill
+from models.consultation import Consultation
+from models.doctor import Doctor
+from models.drug import Drug
+from models.frame import Frame 
+from models.front_desk import FrontDesk
+from models.lens import Lens
+from models.nurse import Nurse
+from models.optician import Optician
+from models.patient import Patient
+from models.procedure import Procedure
+from models.stock import Stock
 
-
-classes = {}
+classes = {"Accessory": Accessory, "BaseModel": BaseModel, "Bill": Bill, "Consultation": Consultation,
+           "Doctor": Doctor, "Drug": Drug, "Frame": Frame, "FrontDesk": FrontDesk,
+           "Lens": Lens, "Nurse": Nurse, "Optician": Optician, "Patient": Patient,
+           "Procedure": Procedure, "Stock": Stock}
 
 class DBStorage():
     """The class to interact with the server"""
