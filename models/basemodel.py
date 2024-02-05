@@ -17,7 +17,7 @@ class BaseModel:
         """To start id from 1"""
         return 1
     
-    id = Column(Integer(6), primary_key=True)
+    id = Column(Integer, primary_key=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow)
 
