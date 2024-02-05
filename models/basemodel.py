@@ -7,8 +7,6 @@ Contains the base for other class
 from datetime import datetime
 from sqlalchemy import Column, DateTime, Integer
 from sqlalchemy.ext.declarative import declarative_base
-from models import storage
-
 
 Base = declarative_base()
 
@@ -43,11 +41,13 @@ class BaseModel:
         return f"{self.id:06d}"
     
     def save(self):
+        from models import storage
         """updates the attribute 'updated_at' with the current datetime"""
         self.updated_at = datetime.utcnow()
         storage.new(self)
         storage.save()
 
     def delete(self):
+        from models import storage
         """deletes a current instance"""
         storage.delete(self)
