@@ -5,7 +5,7 @@ to create accessory table
 """
 from enum import Enum
 from models.basemodel import BaseModel, Base
-from sqlalchemy import Column, Float, String, Integer, Date, ForeignKey
+from sqlalchemy import Column, String, Integer, ForeignKey
 
 
 class Accessory(BaseModel, Base):
