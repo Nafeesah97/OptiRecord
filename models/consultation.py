@@ -3,11 +3,7 @@
 importing necessary libraries
 for consultation table
 """
-from datetime import datetime
-from sqlalchemy.types import Enum
-from models.basemodel import BaseModel, Base
-from sqlalchemy import Column, String, DateTime, Integer, Date, ForeignKey
-from sqlalchemy.orm import relationship
+from enum import Enum
 
 
 class FollowUpStatusEnum(Enum):
@@ -30,6 +26,13 @@ class FollowUpStatusEnum(Enum):
     POSTOPERATIVE_CARE = "Postoperative Care"
     LONG_TERM_FOLLOW_UP = "Long-term Follow-up"
     PATIENT_DISCHARGED = "Patient Discharged"
+
+    
+from datetime import datetime
+from models.basemodel import BaseModel, Base
+from sqlalchemy import Column, String, DateTime, Integer, Date, ForeignKey
+from sqlalchemy.orm import relationship
+
 
 class Consultation(BaseModel, Base):
     """To create the consultation table"""
