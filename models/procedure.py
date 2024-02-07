@@ -21,7 +21,6 @@ class TestType(Set):
 from models.basemodel import BaseModel, Base
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.types import Set
 
 
 class Procedure(BaseModel, Base):
