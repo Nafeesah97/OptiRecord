@@ -4,7 +4,7 @@ importing necessary libraries
 for the patients table
 """
 import phonenumbers
-import enum
+from sqlalchemy.types import Enum
 import re
 from models.basemodel import BaseModel, Base
 from sqlalchemy import Column, String, DateTime, Integer, Date, TypeDecorator
@@ -34,7 +34,7 @@ class Patient(BaseModel, Base):
     id = Column(Integer, primary_key=True)
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)
-    sex = Column(enum('F', 'M'))
+    sex = Column(Enum('F', 'M'))
     DOB = Column(Date)
     email = Column(String, nullable=True)
     contact_no = Column(PhoneNumberType)
