@@ -12,8 +12,8 @@ class Lens(BaseModel, Base):
     """To create lens table"""
     __tablename__ = "lenses"
     id = Column(Integer, primary_key=True)
-    stock_id = Column(Integer(6), ForeignKey("stocks.id"), nullable=False)
-    consultation_id = Column(Integer(6), ForeignKey("consultations.id"), nullable=False)
+    stock_id = Column(Integer, ForeignKey("stocks.id"), nullable=False)
+    consultation_id = Column(Integer, ForeignKey("consultations.id"), nullable=False)
     sphere_power_right = Column(Float)
     sphere_power_left = Column(Float)
     cylinder_power_right = Column(Float)

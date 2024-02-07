@@ -27,7 +27,7 @@ class Procedure(BaseModel, Base):
     """To create the procedure tables"""
     __tablename__ = 'procedures'
     id = Column(Integer, primary_key=True)
-    consultation_id = Column(Integer(6), ForeignKey('consultations.id'), nullable=False)
+    consultation_id = Column(Integer, ForeignKey('consultations.id'), nullable=False)
     test_type = Column(String(60), Set(TestType), nullable=False)
     description = Column(String(4096), nullable=False)
     diagnosis = Column(String(60), nullable=False)

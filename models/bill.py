@@ -11,6 +11,6 @@ class Bill(BaseModel, Base):
     """To create the bill table"""
     __tablename__ = "bills"
     id = Column(Integer, primary_key=True)
-    patient_id = Column(Integer(6), ForeignKey("patients.id"), nullable=False)
-    consultation_id = Column(Integer(6), ForeignKey("consultations.id"), nullable=False)
+    patient_id = Column(Integer, ForeignKey("patients.id"), nullable=False)
+    consultation_id = Column(Integer, ForeignKey("consultations.id"), nullable=False)
     amount = Column(Float, nullable=False)
