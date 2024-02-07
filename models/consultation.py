@@ -27,11 +27,12 @@ class FollowUpStatusEnum(Enum):
     LONG_TERM_FOLLOW_UP = "Long-term Follow-up"
     PATIENT_DISCHARGED = "Patient Discharged"
 
-    
+
 from datetime import datetime
 from models.basemodel import BaseModel, Base
 from sqlalchemy import Column, String, DateTime, Integer, Date, ForeignKey
 from sqlalchemy.orm import relationship
+from sqlalchemy.types import Enum
 
 
 class Consultation(BaseModel, Base):
