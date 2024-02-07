@@ -3,7 +3,7 @@
 importing necessary libraries
 to create lens table
 """
-from enum import Enum
+from sqlalchemy.types import Enum
 from models.basemodel import BaseModel, Base
 from sqlalchemy import CheckConstraint, Column, Float, String, Integer, Date, ForeignKey
 

@@ -3,7 +3,7 @@
 importing necessary libraries
 to create frame table
 """
-from enum import Enum
+from sqlalchemy.types import Enum
 from models.basemodel import BaseModel, Base
 from sqlalchemy import Column, Float, String, Integer, Date, ForeignKey
 

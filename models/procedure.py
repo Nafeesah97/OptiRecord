@@ -4,10 +4,6 @@ importing necessary libraries
 for procedure table
 """
 from ast import Set
-from enum import Enum
-from models.basemodel import BaseModel, Base
-from sqlalchemy import Column, String, Integer, ForeignKey
-from sqlalchemy.orm import relationship
 
 
 class TestType(Set):
@@ -21,6 +17,11 @@ class TestType(Set):
     OPTICAL_COHERENCE_TOMOGRAPHY = "Optical coherence tomography"
     TONOMETRY = "Tonometry"
 
+
+from models.basemodel import BaseModel, Base
+from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.types import Set
 
 
 class Procedure(BaseModel, Base):
