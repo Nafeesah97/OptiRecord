@@ -4,7 +4,7 @@ importing necessary libraries
 to create accessory table
 """
 from models.basemodel import BaseModel, Base
-from sqlalchemy import Column, Enum, String, Integer, ForeignKey
+from sqlalchemy import Column, Enum, String, Integer, ForeignKey, VARCHAR
 
 
 class OrderStatus(Enum):
@@ -20,4 +20,4 @@ class Accessory(BaseModel, Base):
     consultation_id = Column(Integer, ForeignKey("consultations.id"), nullable=False)
     name = Column(String(60), nullable=False)
     quantity = Column(Integer)
-    status = Column(String, Enum(OrderStatus))
+    status = Column(VARCHAR(50), Enum(OrderStatus))
