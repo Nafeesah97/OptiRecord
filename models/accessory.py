@@ -3,14 +3,10 @@
 importing necessary libraries
 to create accessory table
 """
+
+import enum
 from models.basemodel import BaseModel, Base
-from sqlalchemy import Column, Enum, String, Integer, ForeignKey, VARCHAR
-
-
-class OrderStatus(Enum):
-    DISPENSED = "Dispensed"
-    NOT_DISPENSED = "Not dispensed"
-    NONCOMPLIANT = "Noncompliant"
+from sqlalchemy import Column, String, Integer, ForeignKey
 
 
 class Accessory(BaseModel, Base):
@@ -20,4 +16,4 @@ class Accessory(BaseModel, Base):
     consultation_id = Column(Integer, ForeignKey("consultations.id"), nullable=False)
     name = Column(String(60), nullable=False)
     quantity = Column(Integer)
-    status = Column(VARCHAR(50), Enum(OrderStatus, length=50))
+    status = Column(String, enum("Dispensed", "Not dispensed", "Noncompliant"))
