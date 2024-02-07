@@ -11,6 +11,7 @@ from sqlalchemy import Column, Float, String, Integer, Date, ForeignKey
 class Frame(BaseModel, Base):
     """To create frame table"""
     __tablename__ = "frames"
+    id = Column(Integer, primary_key=True)
     stock_id = Column(Integer(6), ForeignKey("stocks.id"), nullable=False)
     consultation_id = Column(Integer(6), ForeignKey("consultations.id"), nullable=False)
     name = Column(String(60), nullable=False)

@@ -31,6 +31,7 @@ class Patient(BaseModel, Base):
     To create the patients table
     """
     __tablename__ = 'patients'
+    id = Column(Integer, primary_key=True)
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)
     sex = Column(enum('F', 'M'))

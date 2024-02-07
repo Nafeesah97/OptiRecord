@@ -12,6 +12,7 @@ from sqlalchemy.orm import relationship
 class Stock(BaseModel, Base):
     """To create the stock table"""
     __tablename__ = "stocks"
+    id = Column(Integer, primary_key=True)
     name = Column(String(60), nullable=False)
     category = Column(String, Enum('Lens', 'Frame', 'Accessory', 'Drug'), nullable=False)
     availability = Column(String, Enum('In stock', 'Out of stock'), nullable=False)

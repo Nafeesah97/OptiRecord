@@ -16,6 +16,7 @@ class Doctor(BaseModel, Base):
     To create the staffs table
     """
     __tablename__ = 'doctors'
+    id = Column(Integer, primary_key=True)
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)
     sex = Column(enum('F', 'M'))

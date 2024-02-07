@@ -33,7 +33,7 @@ class FollowUpStatusEnum(Enum):
 class Consultation(BaseModel, Base):
     """To create the consultation table"""
     __tablename__ = 'consultations'
-
+    id = Column(Integer, primary_key=True)
     encounter_date = BaseModel.created_at.property.columns[0].copy()
     doctor_id = Column(Integer(6), ForeignKey('doctors.id'), nullable=False)
     patient_id = Column(Integer(6), ForeignKey('patients.id'), nullable=False)

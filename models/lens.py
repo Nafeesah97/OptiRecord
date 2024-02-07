@@ -11,6 +11,7 @@ from sqlalchemy import CheckConstraint, Column, Float, String, Integer, Date, Fo
 class Lens(BaseModel, Base):
     """To create lens table"""
     __tablename__ = "lenses"
+    id = Column(Integer, primary_key=True)
     stock_id = Column(Integer(6), ForeignKey("stocks.id"), nullable=False)
     consultation_id = Column(Integer(6), ForeignKey("consultations.id"), nullable=False)
     sphere_power_right = Column(Float)
