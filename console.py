@@ -2,6 +2,7 @@
 """ console """
 
 import cmd
+import models
 import shlex
 from models.accessory import Accessory
 from models.basemodel import BaseModel
