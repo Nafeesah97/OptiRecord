@@ -13,7 +13,7 @@ class Frame(BaseModel, Base):
     __tablename__ = "frames"
     id = Column(Integer, primary_key=True)
     stock_id = Column(Integer, ForeignKey("stocks.id"), nullable=False)
-    consultation_id = Column(Integer(6), ForeignKey("consultations.id"), nullable=False)
+    consultation_id = Column(Integer, ForeignKey("consultations.id"), nullable=False)
     name = Column(String(60), nullable=False)
     shape = Column(String(60), nullable=True)
     colour = Column(String(60), nullable=True)
