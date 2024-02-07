@@ -18,6 +18,11 @@ from models.optician import Optician
 from models.patient import Patient
 from models.procedure import Procedure
 from models.stock import Stock
+from models.__init__ import initialize_storage
+
+
+storage = initialize_storage()
+
 
 classes = {"Accessory": Accessory, "BaseModel": BaseModel, "Bill": Bill, "Consultation": Consultation,
            "Doctor": Doctor, "Drug": Drug, "Frame": Frame, "FrontDesk": FrontDesk,
@@ -78,7 +83,6 @@ class HBNBCommand(cmd.Cmd):
         instance.save()
 
     def do_show(self, arg):
-        from models import storage
         """Prints an instance as a string based on the class and id"""
         args = shlex.split(arg)
         if len(args) == 0:
@@ -97,7 +101,6 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
-        from models import storage
         """Deletes an instance based on the class and id"""
         args = shlex.split(arg)
         if len(args) == 0:
@@ -116,7 +119,6 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, arg):
-        from models import storage
         """Prints string representations of instances"""
         args = shlex.split(arg)
         obj_list = []
@@ -134,7 +136,6 @@ class HBNBCommand(cmd.Cmd):
         print("]")
 
     def do_update(self, arg):
-        from models import storage
         """Update an instance based on the class name, id, attribute & value"""
         args = shlex.split(arg)
         integers = ["quantity", "axis_right", "axis_left"]
