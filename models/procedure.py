@@ -3,10 +3,10 @@
 importing necessary libraries
 for procedure table
 """
-from ast import Set
+from enum import Enum
 
 
-class TestType(Set):
+class TestType(Enum):
     VISUAL_ACUITY = "VA"
     EXT_EYE_EXAM = "Preliminary external eye examination"
     SLIT_LAMP_BIOMICROSCOPY = "SLB"
@@ -16,6 +16,19 @@ class TestType(Set):
     TEAR_TEST = "Tear_test"
     OPTICAL_COHERENCE_TOMOGRAPHY = "Optical coherence tomography"
     TONOMETRY = "Tonometry"
+
+
+from sqlalchemy import Table, Column, Integer, String
+from sqlalchemy.types import Enum
+
+
+test_types_table = Table(
+    'test_types',
+    Base.metadata,
+    Column('id', Integer, primary_key=True),
+    Column('name', String(60), Enum(TestType))
+)
+
 
 
 from models.basemodel import BaseModel, Base
@@ -28,7 +41,7 @@ class Procedure(BaseModel, Base):
     __tablename__ = 'procedures'
     id = Column(Integer, primary_key=True)
     consultation_id = Column(Integer, ForeignKey('consultations.id'), nullable=False)
-    test_type = Column(String(60), Set(TestType), nullable=False)
+    test_type = relationship('TestType', secondary=test_types_table, backref='procedures')
     description = Column(String(4096), nullable=False)
     diagnosis = Column(String(60), nullable=False)
     
