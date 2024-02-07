@@ -9,8 +9,8 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from models.basemodel import Base
 import os
 from os import getenv
-from models.accessory import Accessory
 from models.basemodel import BaseModel
+from models.accessory import Accessory
 from models.bill import Bill
 from models.consultation import Consultation
 from models.doctor import Doctor
