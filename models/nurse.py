@@ -4,7 +4,7 @@ importing necessary libraries
 for the nurses table
 """
 from models.patient import PhoneNumberType
-import enum
+from sqlalchemy.types import Enum
 import re
 from models.basemodel import BaseModel, Base
 from sqlalchemy import Column, String, DateTime, Integer, Date
@@ -19,7 +19,7 @@ class Nurse(BaseModel, Base):
     id = Column(Integer, primary_key=True)
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)
-    sex = Column(enum('F', 'M'))
+    sex = Column(Enum('F', 'M'))
     DOB = Column(Date)
     specialty = Column(String(60))
     Email = Column(String, nullable=False)
