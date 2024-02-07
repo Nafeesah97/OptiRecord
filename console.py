@@ -2,7 +2,7 @@
 """ console """
 
 import cmd
-import models
+from models.engine.database import DBStorage as storage
 import shlex
 from models.accessory import Accessory
 from models.basemodel import BaseModel
@@ -78,7 +78,6 @@ class HBNBCommand(cmd.Cmd):
         instance.save()
 
     def do_show(self, arg):
-        from models import storage
         """Prints an instance as a string based on the class and id"""
         args = shlex.split(arg)
         if len(args) == 0:
@@ -97,7 +96,6 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
-        from models import storage
         """Deletes an instance based on the class and id"""
         args = shlex.split(arg)
         if len(args) == 0:
@@ -116,7 +114,6 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, arg):
-        from models import storage
         """Prints string representations of instances"""
         args = shlex.split(arg)
         obj_list = []
@@ -134,7 +131,6 @@ class HBNBCommand(cmd.Cmd):
         print("]")
 
     def do_update(self, arg):
-        from models import storage
         """Update an instance based on the class name, id, attribute & value"""
         args = shlex.split(arg)
         integers = ["quantity", "axis_right", "axis_left"]
