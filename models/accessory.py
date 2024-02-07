@@ -4,7 +4,7 @@ importing necessary libraries
 to create accessory table
 """
 
-import enum
+from sqlalchemy.types import Enum
 from models.basemodel import BaseModel, Base
 from sqlalchemy import Column, String, Integer, ForeignKey
 
@@ -16,4 +16,4 @@ class Accessory(BaseModel, Base):
     consultation_id = Column(Integer, ForeignKey("consultations.id"), nullable=False)
     name = Column(String(60), nullable=False)
     quantity = Column(Integer)
-    status = Column(String, enum("Dispensed", "Not dispensed", "Noncompliant"))
+    status = Column(String, Enum("Dispensed", "Not dispensed", "Noncompliant"))
