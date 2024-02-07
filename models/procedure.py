@@ -20,7 +20,7 @@ class TestType(Enum):
 
 from sqlalchemy import Table, Column, Integer, String
 from sqlalchemy.types import Enum
-
+from models.basemodel import Base
 
 test_types_table = Table(
     'test_types',
