@@ -3,6 +3,7 @@
 importing necessary libraries
 for consultation table
 """
+import datetime
 from enum import Enum
 from models.basemodel import BaseModel, Base
 from sqlalchemy import Column, String, DateTime, Integer, Date, ForeignKey
@@ -34,7 +35,7 @@ class Consultation(BaseModel, Base):
     """To create the consultation table"""
     __tablename__ = 'consultations'
     id = Column(Integer, primary_key=True)
-    encounter_date = BaseModel.created_at.property.columns[0].copy()
+    encounter_date = Column(DateTime, default=datetime.utcnow)
     doctor_id = Column(Integer, ForeignKey('doctors.id'), nullable=False)
     patient_id = Column(Integer, ForeignKey('patients.id'), nullable=False)
     nurse_id = Column(Integer, ForeignKey('nurses.id'), nullable=True)
