@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 importing necessary libraries
-for the front desk table
+for the user table
 """
 from models.patient import PhoneNumberType
 from sqlalchemy.types import Enum
@@ -11,20 +11,20 @@ from sqlalchemy import Column, String, DateTime, Integer, Date
 from sqlalchemy.orm import relationship
 
 
-class FrontDesk(BaseModel, Base):
+class User(BaseModel, Base):
     """
     To create the staffs table
     """
-    __tablename__ = 'front_desks'
+    __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)
     sex = Column(Enum('F', 'M'))
     DOB = Column(Date)
+    specialty = Column(String(60))
     Email = Column(String, nullable=False)
     contact_no = Column(PhoneNumberType)
     Address = Column(String(128), nullable=False)
-    consult = relationship("Consultation", backref="front_desk")
 
 
     def is_valid_email(email):

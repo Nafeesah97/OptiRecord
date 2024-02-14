@@ -21,7 +21,6 @@ class Optician(BaseModel, Base):
     last_name = Column(String(128), nullable=False)
     sex = Column(Enum('F', 'M'))
     DOB = Column(Date)
-    specialty = Column(String(60))
     Email = Column(String, nullable=False)
     contact_no = Column(PhoneNumberType)
     Address = Column(String(128), nullable=False)
