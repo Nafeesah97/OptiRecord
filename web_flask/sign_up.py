@@ -42,3 +42,7 @@ def register():
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect(url_for('sign_in'))
     return render_template('sign_up.html', form=form)
+
+if __name__ == "__main__":
+    """ Main Function """
+    app.run(host='0.0.0.0', port=5000)

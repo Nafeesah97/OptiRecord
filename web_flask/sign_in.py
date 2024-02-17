@@ -45,3 +45,7 @@ def login():
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('sign_in.html', form=form)
+
+if __name__ == "__main__":
+    """ Main Function """
+    app.run(host='0.0.0.0', port=5000)
