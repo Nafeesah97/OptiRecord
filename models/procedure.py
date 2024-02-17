@@ -19,7 +19,7 @@ test_types_table = Table(
     'test_types',
     Base.metadata,
     Column('id', Integer, primary_key=True),
-    Column('name', Enum('TestType', TestType))
+    Column('name', Enum(TestType))
 )
 
 class Procedure(Base):
@@ -27,6 +27,6 @@ class Procedure(Base):
     __tablename__ = 'procedures'
     id = Column(Integer, primary_key=True)
     consultation_id = Column(Integer, ForeignKey('consultations.id'), nullable=False)
-    test_type = Column(Enum('TestType', TestType), nullable=False)
+    test_type = Column(Enum(TestType), nullable=False)
     description = Column(String(4096), nullable=False)
     diagnosis = Column(String(60), nullable=False)
