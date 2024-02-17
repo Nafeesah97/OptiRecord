@@ -19,10 +19,8 @@ from models.patient import Patient
 from models.procedure import Procedure
 from models.stock import Stock
 from models.user import User
-from models.__init__ import initialize_storage
+from models import storage
 
-
-storage = initialize_storage()
 
 
 classes = {"Accessory": Accessory, "BaseModel": BaseModel, "Bill": Bill, "Consultation": Consultation,
