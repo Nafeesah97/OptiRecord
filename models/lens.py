@@ -28,4 +28,4 @@ class Lens(BaseModel, Base):
     diameter_left = Column(Float, nullable=True)
     lens_type = Column(String(20))
     quantity = Column(Integer)
-    status = Column(String, Enum('Dispensed', 'Not dispensed', 'Noncompliant'))
+    status = Column(String(20), Enum('Dispensed', 'Not dispensed', 'Noncompliant'))

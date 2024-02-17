@@ -19,4 +19,4 @@ class Frame(BaseModel, Base):
     colour = Column(String(60), nullable=True)
     material = Column(String(60), nullable=True)
     quantity = Column(Integer)
-    status = Column(String, Enum('Dispensed', 'Not dispensed', 'Noncompliant'))
+    status = Column(String(20), Enum('Dispensed', 'Not dispensed', 'Noncompliant'))

@@ -15,7 +15,7 @@ class Stock(BaseModel, Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(60), nullable=False)
     category = Column(String(15), Enum('Lens', 'Frame', 'Accessory', 'Drug'), nullable=False)
-    availability = Column(String, Enum('In stock', 'Out of stock'), nullable=False)
+    availability = Column(String(15), Enum('In stock', 'Out of stock'), nullable=False)
     drug = relationship("Drug", backref="stock")
     accessory = relationship("Accessory", backref="stock")
     frame = relationship("Frame", backref="stock")
