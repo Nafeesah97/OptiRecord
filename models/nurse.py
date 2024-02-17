@@ -22,7 +22,7 @@ class Nurse(BaseModel, Base):
     sex = Column(Enum('F', 'M'))
     DOB = Column(Date)
     specialty = Column(String(60))
-    Email = Column(String, nullable=False)
+    Email = Column(String(30), nullable=False)
     contact_no = Column(PhoneNumberType)
     Address = Column(String(128), nullable=False)
     consult = relationship("Consultation", backref="nurse")

@@ -19,7 +19,7 @@ class User(BaseModel, Base, UserMixin):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     username = Column(String(20), unique=True, nullable=False)
-    Email = Column(String, unique=True, nullable=False)
+    Email = Column(String(30), unique=True, nullable=False)
     image_file = Column(String(20), nullable=False, default='default.png')
     password = Column(String(60), nullable=False)
 
