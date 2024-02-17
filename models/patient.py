@@ -36,7 +36,7 @@ class Patient(BaseModel, Base):
     last_name = Column(String(128), nullable=False)
     sex = Column(Enum('F', 'M'))
     DOB = Column(Date)
-    email = Column(String, nullable=True)
+    email = Column(String(30), nullable=True)
     contact_no = Column(PhoneNumberType)
     address = Column(String(128), nullable=False)
     consult = relationship("Consultation", backref="patient")
