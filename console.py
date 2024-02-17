@@ -18,6 +18,7 @@ from models.optician import Optician
 from models.patient import Patient
 from models.procedure import Procedure
 from models.stock import Stock
+from models.user import User
 from models.__init__ import initialize_storage
 
 
@@ -27,7 +28,7 @@ storage = initialize_storage()
 classes = {"Accessory": Accessory, "BaseModel": BaseModel, "Bill": Bill, "Consultation": Consultation,
            "Doctor": Doctor, "Drug": Drug, "Frame": Frame, "FrontDesk": FrontDesk,
            "Lens": Lens, "Nurse": Nurse, "Optician": Optician, "Patient": Patient,
-           "Procedure": Procedure, "Stock": Stock}
+           "Procedure": Procedure, "Stock": Stock, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
