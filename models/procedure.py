@@ -1,10 +1,8 @@
-#!/usr/bin/python3
-"""
-importing necessary libraries
-for procedure table
-"""
+from sqlalchemy import Table, Column, Integer, String, ForeignKey
+from sqlalchemy.types import Enum
+from models.basemodel import Base
+from sqlalchemy.orm import relationship
 from enum import Enum
-
 
 class TestType(Enum):
     VISUAL_ACUITY = "VA"
@@ -17,11 +15,6 @@ class TestType(Enum):
     OPTICAL_COHERENCE_TOMOGRAPHY = "Optical coherence tomography"
     TONOMETRY = "Tonometry"
 
-
-from sqlalchemy import Table, Column, Integer, String
-from sqlalchemy.types import Enum
-from models.basemodel import Base
-
 test_types_table = Table(
     'test_types',
     Base.metadata,
@@ -29,19 +22,11 @@ test_types_table = Table(
     Column('name', String(60), Enum(TestType))
 )
 
-
-
-from models.basemodel import BaseModel, Base
-from sqlalchemy import Column, String, Integer, ForeignKey
-from sqlalchemy.orm import relationship
-
-
-class Procedure(BaseModel, Base):
+class Procedure(Base):
     """To create the procedure tables"""
     __tablename__ = 'procedures'
     id = Column(Integer, primary_key=True)
     consultation_id = Column(Integer, ForeignKey('consultations.id'), nullable=False)
-    test_type = relationship('TestType', secondary=test_types_table, backref='procedures')
+    test_type = Column(Enum(TestType), nullable=False)  
     description = Column(String(4096), nullable=False)
     diagnosis = Column(String(60), nullable=False)
-    
