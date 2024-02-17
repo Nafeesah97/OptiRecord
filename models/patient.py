@@ -11,7 +11,7 @@ from sqlalchemy import Column, String, DateTime, Integer, Date, TypeDecorator
 from sqlalchemy.orm import relationship
 
 class PhoneNumberType(TypeDecorator):
-    impl = String
+    impl = String(20)
 
     def process_bind_param(self, value, dialect):
         # Validate and format the phone number before storing it in the database
