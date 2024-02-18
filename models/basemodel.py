@@ -40,7 +40,7 @@ class BaseModel(Base):
         from models import storage
         """updates the attribute 'updated_at' with the current datetime and saves the instance"""
         self.updated_at = datetime.utcnow()
-        storage.add(self)
+        storage.new(self)
         storage.save()
 
     def delete(self):
