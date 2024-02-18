@@ -16,11 +16,15 @@ class PhoneNumberType(TypeDecorator):
     def process_bind_param(self, value, dialect):
         # Validate and format the phone number before storing it in the database
         if value is not None:
-            phone_number = phonenumbers.parse(value, None)
+            try:
+                phone_number = phonenumbers.parse(value, None)  # No default region
+            except phonenumbers.phonenumberutil.NumberParseException as e:
+                raise ValueError("Invalid phone number") from e
             if not phonenumbers.is_valid_number(phone_number):
                 raise ValueError("Invalid phone number")
             return phonenumbers.format_number(phone_number, phonenumbers.PhoneNumberFormat.E164)
         return None
+
 
     def process_result_value(self, value, dialect):
         # Return the stored phone number as is
