@@ -45,4 +45,4 @@ def register():
 
 if __name__ == "__main__":
     """ Main Function """
-    app.run(host='0.0.0.0', port=5005, debug=True)
+    app.run(host='52.91.202.165', port=5005, debug=True)
