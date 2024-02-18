@@ -1,10 +1,16 @@
+#!/usr/bin/python3
+"""
+importing necessary libraries
+for the procedure table
+"""
+
 from sqlalchemy import Table, Column, Integer, String, ForeignKey
 from sqlalchemy.types import Enum
 from models.basemodel import Base
 from sqlalchemy.orm import relationship
-from enum import Enum
+from enum import Enum as En
 
-class TestType(Enum):
+class TestType(En):
     VISUAL_ACUITY = "VA"
     EXT_EYE_EXAM = "Preliminary external eye examination"
     SLIT_LAMP_BIOMICROSCOPY = "SLB"
