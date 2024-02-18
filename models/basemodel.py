@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""
+importing necessary libraries
+to create base model
+"""
+from models import storage
 from datetime import datetime
 from sqlalchemy import Column, DateTime, Integer
 from sqlalchemy.ext.declarative import declarative_base
@@ -30,13 +36,13 @@ class BaseModel(Base):
         """Format id with the leading zeros"""
         return f"{self.id:06d}"
 
-    def save(self, session):
+    def save(self):
         """updates the attribute 'updated_at' with the current datetime and saves the instance"""
         self.updated_at = datetime.utcnow()
-        session.add(self)
-        session.commit()
+        storage.add(self)
+        storage.save()
 
-    def delete(self, session):
+    def delete(self):
         """deletes a current instance"""
-        session.delete(self)
-        session.commit()
+        storage.delete(self)
+        storage.save()
