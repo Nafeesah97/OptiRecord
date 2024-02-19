@@ -3,7 +3,7 @@
 importing necessary libraries
 sign in
 """
-import uuid
+import logging
 from flask import Flask, render_template, url_for, flash, redirect, request, abort
 from flask_login import current_user, login_user
 from models import storage
@@ -15,8 +15,11 @@ from flask_bcrypt import Bcrypt
 
 # flask setup
 app = Flask(__name__)
+app.config['DEBUG'] = True
+
+# Configure logging
+logging.basicConfig(filename='flask.log', level=logging.DEBUG)
 app.url_map.strict_slashes = False
-port = 5000
 host = '0.0.0.0'
 
 @app.teardown_appcontext
@@ -48,4 +51,4 @@ def login():
 
 if __name__ == "__main__":
     """ Main Function """
-    app.run(host='0.0.0.0', port=500)
+    app.run(host='0.0.0.0', port=5002)
