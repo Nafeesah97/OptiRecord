@@ -1,4 +1,1 @@
- echo 'create Patient first_name="Naf" last_name="Sal" sex="F" 
- DOB="2000-12-09" email="salaudeennafeesah97@gmail.com" 
- contact_no="+2349031241220" address="Ede,Osun"' | 
- OPTI_MYSQL_USER=optirecord OPTI_MYSQL_PWD=psword OPTI_MYSQL_HOST=localhost OPTI_MYSQL_DB=optirecord_db ./console.py
+ echo 'create Patient first_name="Naf" last_name="Sal" sex="F" DOB="2000-12-09" email="salaudeennafeesah97@gmail.com" contact_no="+2349031241220" address="Ede,Osun"' | OPTI_MYSQL_USER=optirecord OPTI_MYSQL_PWD=psword OPTI_MYSQL_HOST=localhost OPTI_MYSQL_DB=optirecord_db ./console.py
