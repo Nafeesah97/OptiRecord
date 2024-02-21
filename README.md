@@ -26,3 +26,21 @@ pip install optirecord
 
 1. Clone the repository:
 
+git clone https://github.com/your_username/optirecord.git
+
+
+2. Install dependencies:
+
+pip install -r requirements.txt
+
+
+3. Run the application:
+
+python app.py
+
+
+4. Access the application in your web browser at http://localhost:5002
+
+## Contributing
+
+Contributions are welcome! Please feel free to fork the repository and submit pull requests with any improvements or new feature.
