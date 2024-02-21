@@ -2,6 +2,8 @@
 
 OptiRecord is an Electronic Health Record (EHR) system designed to streamline the management of patient records and inventory for eye healthcare professionals. It provides a user-friendly interface for saving, retrieving, and updating patient records, as well as managing available drugs and frames.
 
+https://www.linkedin.com/feed/update/urn:li:activity:7166197030497820672?utm_source=share&utm_medium=member_android
+
 ## Features
 
 - Save and retrieve patient records
@@ -44,3 +46,7 @@ python app.py
 ## Contributing
 
 Contributions are welcome! Please feel free to fork the repository and submit pull requests with any improvements or new feature.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
