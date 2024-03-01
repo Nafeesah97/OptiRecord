@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section border-top pt-5">
+        <h1 class="mb-4"></h1>
+        <form method="GET" action="/home" class="d-flex" role="search">
+            <div class="input-group mb-3">
+                <input class="form-control me-2" type="search" placeholder="Search Px/Rx/Frame" aria-label="Search">
+                <label class="input-group-text" for="search_table">Filter</label>
+                <select class="form-select" id="search_table" name="search_table">
+                    <option value="All">All</option>
+                    <option value="patient">Patient</option>
+                    <option value="drug">Drug</option>
+                    <option value="frame">Frame</option>
+                    <option value="procedure">Procedure</option>
+                </select>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <h1>Search Result</h1>
+    {% if filter_by == 'patient' %}
+        <ul>
+            {% for patient in patients.items %}
+                <li>{{ patient }}</li>
+            {% endfor %}
+        </ul>        
+    {% elif filter_by == 'drug' %}
+        <ul>
+            {% for drug in drugs.items %}
+                <li>{{ drug }}</li>
+            {% endfor %}
+        </ul>
+    {% elif filter_by == 'frame' %}
+        <ul>
+            {% for frame in frames.items %}
+                <li>{{ <frame> }}</li>
+            {% endfor %}
+        </ul>
+    {% elif filter_by == 'procedure' %}
+        <ul>
+            {% for procedure in procedures.items %}
+                <li>{{ procedure }}</li>
+            {% endfor %}
+        </ul>
+    {% elif filter_by == 'all' %}
+        <ul>
+            {% for patient in patients.items %}
+                <li>{{ patient }}</li>
+            {% endfor %}
+            {% for drug in drugs.items %}
+                <li>{{ drug }}</li>
+            {% endfor %}
+            {% for frame in frames.items %}
+                <li>{{ <frame> }}</li>
+            {% endfor %}
+            {% for procedure in procedures.items %}
+                <li>{{ procedure }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+
+{% endblock content %}

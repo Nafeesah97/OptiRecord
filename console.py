@@ -2,28 +2,26 @@
 """ console """
 
 import cmd
-import models
+import web_flask
 import shlex
-from models.basemodel import BaseModel
-from models.accessory import Accessory
-from models.bill import Bill
-from models.consultation import Consultation
-from models.doctor import Doctor
-from models.drug import Drug
-from models.frame import Frame 
-from models.front_desk import FrontDesk
-from models.lens import Lens
-from models.nurse import Nurse
-from models.optician import Optician
-from models.patient import Patient
-from models.procedure import Procedure
-from models.stock import Stock
-from models.user import User
-from models import storage
+from web_flask.accessory import Accessory
+from web_flask.bill import Bill
+from web_flask.consultation import Consultation
+from web_flask.doctor import Doctor
+from web_flask.drug import Drug
+from web_flask.frame import Frame 
+from web_flask.front_desk import FrontDesk
+from web_flask.lens import Lens
+from web_flask.nurse import Nurse
+from web_flask.optician import Optician
+from web_flask.patient import Patient
+from web_flask.procedure import Procedure
+from web_flask.stock import Stock
+from web_flask.user import User
+from web_flask import storage
 
 
-
-classes = {"Accessory": Accessory, "BaseModel": BaseModel, "Bill": Bill, "Consultation": Consultation,
+classes = {"Accessory": Accessory, "Bill": Bill, "Consultation": Consultation,
            "Doctor": Doctor, "Drug": Drug, "Frame": Frame, "FrontDesk": FrontDesk,
            "Lens": Lens, "Nurse": Nurse, "Optician": Optician, "Patient": Patient,
            "Procedure": Procedure, "Stock": Stock, "User": User}
